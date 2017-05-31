@@ -135,6 +135,10 @@ like:
     [Custom deployment][custom] for more information about custom Meteor
     deployments.
 
+1. Create an `app.yaml` file with the following contents:
+
+      runtime: custom
+
 1. Configure a [custom runtime](/appengine/docs/flexible/custom-runtimes/) by
 running the following command:
 
