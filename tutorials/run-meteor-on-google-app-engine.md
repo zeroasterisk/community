@@ -26,9 +26,9 @@ Platform.
 
 1. [Install Meteor](https://meteor.com/install) on your local machine.
 
-1. Create a MongoDB instance as described [here][deploy-mongodb]. Remember your
-`MONGO_URL`, you will need that later. An example MongoDB URI would be
-`mongodb://username:password@host:port`.
+1. Create and configure a MongoDB instance as described [here][deploy-mongodb]. (Ignore the
+other sections.) Remember your `MONGO_URL`, as you will need that later.
+An example MongoDB URI would be `mongodb://username:password@host:port`.
 
 ## Create
 
@@ -39,14 +39,14 @@ Platform.
         meteor add reactive-dict
         meteor remove autopublish
 
-    replacing `[YOUR_APP_NAME]` with your app name.
+    replacing `[YOUR_APP_NAME]` with an appropriate name for your app.
 
 1. To add database functionality, edit `[YOUR_APP_NAME]/client/main.js` to look
 like:
 
         import { Template } from 'meteor/templating';
         import { ReactiveVar } from 'meteor/reactive-var';
-        import { Meteor } from 'meteor/meteor'
+        import { Meteor } from 'meteor/meteor';
 
         import './main.html';
 
@@ -170,5 +170,6 @@ ID. To test database functionality, click on the button a few times and refresh
 the page. You should see your previous button-click count appear after a few
 seconds.
 
+[nodejs-gcp]: https://cloud.google.com/nodejs
 [deploy-mongodb]: https://cloud.google.com/nodejs/getting-started/deploy-mongodb
 [custom]: https://guide.meteor.com/deployment.html#custom-deployment
