@@ -121,9 +121,10 @@ like:
 
 ## Deploy
 
-1. Add the following to the `package.json` file:
+1. In `package.json`, replace the  "scripts" section with the following:
 
        "scripts": {
+         "start": "meteor run",
          "cleanup": "rm -rf ../bundle/",
          "dist": "npm run cleanup && meteor build ../ --directory --architecture os.linux.x86_64 --server-only",
          "predeploy": "npm run dist && cp app.yaml ../bundle/ && cp Dockerfile ../bundle/",
@@ -138,6 +139,15 @@ like:
 1. Create an `app.yaml` file with the following contents:
 
        runtime: custom
+       env: flex
+       
+       env_variables:
+         ROOT_URL: https://[YOUR_PROJECT_ID].appspot-preview.com
+         MONGO_URL: [MONGO_URL]
+         DISABLE_WEBSOCKETS: "1"
+         
+    replacing `[YOUR_PROJECT_ID]` with your Google Cloud Platform project ID and
+    `[MONGO_URL]` with your MongoDB URI.
 
 1. Configure a [custom runtime](/appengine/docs/flexible/custom-runtimes/) by
 running the following command:
@@ -148,21 +158,11 @@ running the following command:
 
        FROM gcr.io/google_appengine/nodejs
        COPY . /app/
-       RUN (cd programs/server && npm install --unsafe-perm)
+       RUN (cd server && npm install --unsafe-perm)
        CMD node main.js
 
     The custom `Dockerfile` is required in order to properly build the Meteor
     app in production.
-
-1. Add the following to the generated `app.yaml` file:
-
-       env_variables:
-         ROOT_URL: https://[YOUR_PROJECT_ID].appspot-preview.com
-         MONGO_URL: [MONGO_URL]
-         DISABLE_WEBSOCKETS: "1"
-
-    replacing `[YOUR_PROJECT_ID]` with your Google Cloud Platform project ID and
-    `[MONGO_URL]` with your MongoDB URI.
 
 1. Run the following command to deploy your app:
 
