@@ -137,7 +137,7 @@ like:
 
 1. Create an `app.yaml` file with the following contents:
 
-      runtime: custom
+       runtime: custom
 
 1. Configure a [custom runtime](/appengine/docs/flexible/custom-runtimes/) by
 running the following command:
