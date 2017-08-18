@@ -423,9 +423,9 @@ If you need to close a client connection manually, refer to Pusher's
 
 The application uses the [App Engine Maven Plugin](/appengine/docs/standard/java/tools/using-maven)
 to test and deploy to the Google Cloud App Engine Standard environment.
-```
-    mvn clean appengine:run
-```
+
+		    mvn clean appengine:run
+
 Access [http://localhost:8080](http://localhost:8080) via the browser, login, and join the chat room.
 
 The chat window will contain a link you can use to join the room as a different user in another browser.
@@ -434,12 +434,11 @@ You should now be able to view both the users within the chat application window
 
 ## Deploying
 
-  - Deploy the application to the project:
-```
-        mvn clean appengine:deploy
-```
-  - Access `https://YOUR_PROJECT_ID.appspot.com`
+- Deploy the application to the project:
 
+		    mvn clean appengine:deploy
+
+- Access `https://YOUR_PROJECT_ID.appspot.com`
 
 ### Additional Resources
 - [Java on Google Cloud App Engine](/appengine/docs/java/)
