@@ -1,0 +1,11 @@
+# config/config.exs
+use Mix.Config
+config :house_party,
+  port: "${PORT}"
+config :logger,
+  level: :info
+config :swarm,
+  distribution_strategy: Swarm.Distribution.Ring,
+  debug: false
+config :libcluster,
+  debug: true
